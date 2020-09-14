@@ -1,12 +1,28 @@
 import React from "react";
-
-const Login = () => {
+import FirebaseContext from "../../components/Firebase/context";
+import { withRouter } from "react-router-dom";
+const Login = ({ history }) => {
   return (
     <div>
       <h1>Login</h1>
-      <button>Login With Google</button>
+      <FirebaseContext.Consumer>
+        {(firebase) => {
+          return (
+            <button
+              onClick={() => {
+                firebase
+                  .signInWithGoogle()
+                  .then((result) => history.push("/"))
+                  .catch((error) => alert("Login error"));
+              }}
+            >
+              Login With Google
+            </button>
+          );
+        }}
+      </FirebaseContext.Consumer>
     </div>
   );
 };
 
-export default Login;
+export default withRouter(Login);
