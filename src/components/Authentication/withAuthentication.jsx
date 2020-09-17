@@ -15,7 +15,7 @@ const withAuthentication = (Component) => {
       return () => {
         onAuth();
       };
-    }, []);
+    });
     return <Component {...rest} />;
   };
   return compose(withRouter, withFirebase)(WithAuthentication);

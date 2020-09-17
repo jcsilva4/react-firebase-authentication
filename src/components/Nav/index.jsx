@@ -6,14 +6,16 @@ import * as routes from "../../constants/routes";
 
 const Nav = ({ firebase }) => {
   return (
-    <div>
+    <div className="Nav">
       <div>React Firebase Authentication</div>
-      <div>
-        <NavLink to={routes.HOME}>Home</NavLink>
-        <NavLink to={routes.PROFILE}>Profile</NavLink>
-      </div>
-      <div>
-        <button onClick={() => firebase.signOut()}>Log Out</button>
+      <div className="Navigation">
+        <div>
+          <NavLink className="NavLink" to={routes.HOME}>Home</NavLink>
+          <NavLink className="NavLink" to={routes.PROFILE}>Profile</NavLink>
+        </div>
+        <div>
+          <button className="LogOutButton" onClick={() => firebase.signOut()}>Log Out</button>
+        </div>
       </div>
     </div>
   );
