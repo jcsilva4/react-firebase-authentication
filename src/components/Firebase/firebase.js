@@ -18,7 +18,7 @@ class Firebase {
     this.googleAuthProvider = new app.auth.GoogleAuthProvider();
   }
 
-  signInWithGoogle = () => this.auth.signInWithPopup(this.googleAuthProvider);
+  signInWithGoogle = () => this.auth.signInWithRedirect(this.googleAuthProvider);
   signOut = () => this.auth.signOut();
 }
 
